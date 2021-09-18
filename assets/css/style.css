@@ -1,0 +1,36 @@
+body {
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(101, 130, 160);
+    color: rgb(109, 11, 57);
+}
+
+header {
+    background-color: antiquewhite;
+}
+
+h2 {
+    font: bold;
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+p {
+    font-size: 15px;
+}
+
+.btn {
+    background-color: rgb(109, 11, 57);
+    color: antiquewhite;
+}
+
+.card-header{
+    background-color: antiquewhite;
+}
+
+.daily {
+    background-color: antiquewhite;
+}
