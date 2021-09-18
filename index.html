@@ -11,21 +11,99 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <header class="center bg-grey text-center">Weather Dashboard</header>
-    <section id="form" class="row justify-content-start">
-        <div id="col-4">
-            <textarea id= "location" class="btn" value="Woodland Hills"></textarea>
-            <button id= "btnsaved" class="btn"></button>
+    <header class="col-12 center bg-dark text-light text-center">
+        <h1 class="">Weather Dashboard</h1>
+    </header>
+    <main class="row">
+        <div class="col-12 col-md-3">
+            <div class="card bg-color-light">
+                <h2 class="card-header text-light">Search for City</h2>
+                <div class="input-group" id="city-form">
+                    <input type="text" class="form-input input-group-text col-9" id="city-input" name="city"/>
+                    <button type="button" class="btn btn-info" id="search-btn"></button>
+                </div>
+            </div>
+            <div class="card bg-color-light">
+                <h2 class="card-header text-light">Recent Cities</h2>
+            </div>
         </div>
-    </section>
-    <section id="searched" class="row">
-        <div id="today" class="col-12"></div>
-        <div id="tomorrow" class="col-2"></div>
-        <div id="dayTwo" class="col-2"></div>
-        <div id="dayThree" class="col-2"></div>
-        <div id="dayFour" class="col-2"></div>
-        <div id="dayFive" class="col-2"></div>
-        <div id="daySix" class="col-2"></div>
-    </section>
+        <div class="col-12 col-md-9 city-forecast hide">
+            <div class="card bg-color-light">
+                <h2 class="card-header text-light">Today's Forecast</h2>
+                <div class="container">
+                    <div class="row">
+                        <h3>
+                            <img class="weather-icon" id="today-icon"/>
+                            <span class="align-middle" id="city-name">City Name</span>
+                        </h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <p>Current Temperature: <span id="current-temp"></span> &deg;F</p>
+                            <p>Humidity: <span id="current-humidity"></span> %</p>
+                            <p>Wind Speed: <span id="current-wind-speed"></span>MPH</p>
+                            <p>UV Index: <span id="current-uvi"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card bg-color-light">
+            <h2 class="card-header text-light">Five Day Forecast</h2>
+            <div class="container">
+                <div class="row row-cols-1 row-col-md-5">
+                    <div class="col">
+                        <div class="card text-light bg-info">
+                            <p class="badge badge-light" id="icon-2"></p>
+                            <h3 class="align-middle">
+                                <img class="weather-icon" id="icon-2">
+                                <span id="temp-2"></span> &deg;F
+                            </h3>
+                            <p>Humidity: <span id="humidity-2"></span>%</p>
+                            <p>Wind Speed: <span id="wind-speed-2"></span></p>
+                            <p>UV Index: <span id="uvi-2"></span></p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-light bg-info">
+                            <p class="badge badge-light" id="date-3"></p>
+                            <h3 class="align-middle">
+                                <img class="weather-icon" id="icon-3">
+                                <span id="temp-3"></span> &deg;F
+                            </h3>
+                            <p>Humidity: <span id="humidity-3"></span>%</p>
+                            <p>Wind Speed: <span id="wind-speed-3"></span></p>
+                            <p>UV Index: <span id="uvi-3"></span></p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-light bg-info">
+                            <p class="badge adge-light" id="date-4"></p>
+                            <h4 class="align-middle">
+                                <img class="weather-icon" id="idon-4">
+                                <span id="temp-4"></span> &deg;F
+                            </h4>
+                            <p>Humidity: <span id="humidity-4"></span>%</p>
+                            <p>Wind Speed: <span id="wind-speed-4"></span></p>
+                            <p>UV Index: <span id="uvi-4"></span></p>
+                         </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-light bg-info">
+                            <p class="badge badge-light" id="icon-5"></p>
+                            <h4 class="align-middle">
+                                <img class="weather-icon" id="idon-5">
+                                <span id="temp-5"></span> &deg;F
+                            </h4>
+                            <p>Humidity: <span id="humidity-5"></span>%</p>
+                            <p>Wind Speed: <span id="wind-speed-5"></span></p>
+                            <p>UV Index: <span id="uvi-5"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
