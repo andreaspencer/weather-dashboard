@@ -52,7 +52,7 @@ var getCityForecast = function(city, lon, lat) {
     fetch(oneCallApi).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                cityNameEl.textContent = `${city} (${moment().format("M/D/YYYY")})`; 
+                cityNameEl.textContent = `${city} (${moment().format("MM/DD/YYYY")})`; 
 
                 console.log(data)
 
@@ -92,7 +92,7 @@ var currentForecast = function(forecast) {
     uviEl.textContent = currentUvi;
 
     switch (true) {
-        case (currentUvi <= 2):
+        case (currentUvi <= 3):
             uviEl.className = 'badge badge-success';
             break;
         case (currentUvi <= 5):
