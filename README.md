@@ -28,3 +28,4 @@ This week we had to create a wather dashboard that displays weather through a fe
 ##### Website Live URL
 
 ###### Screenshot
+<img width="1440" alt="Screen Shot 2021-09-18 at 4 15 26 PM" src="https://user-images.githubusercontent.com/87836575/133910867-313287b6-19e0-44e4-adad-42579eacea6f.png">
