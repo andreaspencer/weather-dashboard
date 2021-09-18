@@ -4,7 +4,7 @@ var cityNameEl= document.querySelector('#city-name');
 var cityArr = [];
 
 var formHandler = function(event) {
-    var selectCity = cityInput.ariaValueMax.trim()
+    var selectedCity = cityInput.value;
 
     if (selectedCity) {
         getCoords(selectedCity);
@@ -15,7 +15,7 @@ var formHandler = function(event) {
 };
 
 var getCoords = function(city) {
-    var currentWeatherApi = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&units=imperial&appid=e4ab7318fab329c7de8c4fd9dd5056d7";
+    var currentWeatherApi = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=527ffaa472a4d0f2c605827e181f11a6";
 
     fetch(currentWeatherApi).then(function(response) {
         if(response.ok) {
@@ -32,16 +32,16 @@ var getCoords = function(city) {
                 loadCities();
             });
         } else{
-            textInput("Error: " + response.statusText)
+            alert("Error: " + response.statusText)
         }
     })
     .catch(function(error) {
-        textInput("Unable to load weather.");
+        alert("Unable to load weather.");
     })
 }
 
 var getCityForecast = function(city, lon, lat) {
-    var oneCallApi = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly,alerts&appid=e4ab7318fab329c7de8c4fd9dd5056d7";
+    var oneCallApi = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly,alerts&appid=527ffaa472a4d0f2c605827e181f11a6";
 
     fetch(oneCallApi).then(function(response) {
         response.json().then(function(data) {
@@ -75,10 +75,10 @@ var currentForecast = function(forecast) {
     currentHumidityEl.textContent = forecast.current['humidity'];
 
     var currentWindEl = document.querySelector('#current-wind-speed');
-    currentHumidityEl.textContent = forecast.current['wind-speed'];
+    currentWindEl.textContent = forecast.current['wind-speed'];
 
     var uviEl = document.querySelector('#current-uvi');
-    var currentUVI = forecast.current["uvi"];
+    var uviEl = forecast.current["uvi"];
     uviel.textContent = currentUvi;
 
     switch (true) {
@@ -141,5 +141,26 @@ var loadCities = function() {
         cityArr.shift();
     }
 
+    var recentCities = document.querySelector("#recent-cities");
+    var cityListUl = document.createElement('ul');
+    cityListUl.className = 'list-group list-group-flush city-list';
+    recentCities.appendChild(cityListUl);
 
+    for (var i=0; i < cityArr.length; i++) {
+        var cityListItem = document.createElement('button');
+        cityListItem.className= "list-group-item";
+        cityListItem.setAttribute('value', cityArr[i]);
+        cityListUl.prepend(cityListItem);
+    }
+    var cityList = document.querySelector('.city-list');
+    cityList.addEventListener('click', selectRecent)
 }
+
+var selectRecent = function(event) {
+    var clickedCity = event.target.getAttribute('value');
+
+    getCoords(clickedCity);
+}
+
+loadCities();
+cityBtn.addEventListener('click', formHandler)
